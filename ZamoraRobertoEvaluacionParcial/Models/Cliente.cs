@@ -9,7 +9,7 @@ namespace ZamoraRobertoEvaluacionParcial.Models
 
         [Required]
         [StringLength(50)]
-        public string CordovaS { get; set; }
+        public string NombreCliente { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
