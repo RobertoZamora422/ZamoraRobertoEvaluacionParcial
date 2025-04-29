@@ -5,11 +5,17 @@ namespace ZamoraRobertoEvaluacionParcial.Models
     public class PlanRecompensa
     {
         [Key]
+        public int Id { get; set; }
 
-        public string id
+        [Required]
+        public string Nombre { get; set; }
 
-        public string nombre
+        [DataType(DataType.Date)]
+        public DateTime FechaInicio { get; set; }
 
-        public int puntos
+        [Range(0, 10000)]
+        public int PuntosAcumulados { get; set; }
+
+        public string TipoRecompensa => PuntosAcumulados >= 500 ? "GOLD" : "SILVER";
     }
 }

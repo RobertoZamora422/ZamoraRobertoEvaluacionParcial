@@ -6,22 +6,24 @@ namespace ZamoraRobertoEvaluacionParcial.Models
     public class Reserva
     {
         [Key]
-        public int idReserva { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        public DateTime fechaEntrada { get; set; }
+        public DateTime FechaEntrada { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        public DateTime fechaSalida { get; set; }
+        public DateTime FechaSalida { get; set; }
 
-        public decimal valorPagar { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal ValorPagar { get; set; }
 
-        [ForeignKey("IdCliente")]
+        // Clave foránea
         [Required]
-        public int idCliente { get; set; }
+        public int ClienteId { get; set; }
 
+        [ForeignKey("ClienteId")]
         public Cliente Cliente { get; set; }
     }
 }

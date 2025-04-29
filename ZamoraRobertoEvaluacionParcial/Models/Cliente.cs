@@ -5,30 +5,26 @@ namespace ZamoraRobertoEvaluacionParcial.Models
     public class Cliente
     {
         [Key]
-        [Required]
-        [StringLength(15)]
-        public string IdCliente { get; set; }
-
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string NombreCliente { get; set; }
+        public string CordovaS { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
         public DateTime FechaNacimiento { get; set; }
 
-        [Range(0,10000)]
-        public int puntos { get; set; }
+        [Range(0, 10000)]
+        public int Puntos { get; set; }
 
-        [Required]
-        public string TipoRecompensa { get; set; }
-
-        public bool EsActivo { get; set; }
+        public bool Activo { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime FechaRegistro { get; set; }
 
+        public string TipoRecompensa => Puntos >= 500 ? "GOLD" : "SILVER";
 
+        public ICollection<Reserva> Reservas { get; set; }
     }
 }
